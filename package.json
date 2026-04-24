@@ -1,0 +1,19 @@
+{
+  "name": "islamic-telegram-bot",
+  "version": "1.0.0",
+  "description": "telegram bot ,it will help muslimes in their life ان شاء الله",
+  "license": "ISC",
+  "author": "sirbro-2009",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "telegraf": "^4.16.3",
+    "telegraph": "^0.8.22"
+  }
+}
