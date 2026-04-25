@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const {Telegraf,Input} = require("telegraf")
 const express = require('express')
 const app = express()
@@ -330,7 +330,6 @@ newBot.command("souraList",ctx=>{
     ctx.reply(quranSurahs.join("\n"))
 })
 newBot.launch()
-=======
 const {Telegraf,Input} = require("telegraf")
 const { message } = require('telegraf/filters')
 const quranFile = require("./assets/quran.json") 
@@ -656,4 +655,4 @@ newBot.command("souraList",ctx=>{
     ctx.reply(quranSurahs.join("\n"))
 })
 newBot.launch()
->>>>>>> beb5828972798db4e52673c001792db54e4623d4
+
