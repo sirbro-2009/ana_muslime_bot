@@ -22,6 +22,17 @@ setInterval(() => {
 Day= date.getDate()<10?`0${date.getDate()}`:date.getDate()
 month= date.getMonth()+1<10?`0${date.getMonth()+1}`:date.getMonth()+1
 year= date.getFullYear()
+let mins = date.getMinutes()
+let second = date.getSeconds()
+if(mins === 0&second === 0){
+newBot.telegram.sendMessage(`
+﴿إِنَّ ٱللَّهَ وَمَلَـٰٓئِكَتَهُۥ يُصَلُّونَ عَلَى ٱلنَّبِيِّۚ يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ صَلُّواْ عَلَيۡهِ وَسَلِّمُواْ تَسۡلِيمًا﴾
+\n
+صلوا على محمد ❤️
+\n
+ﷺ
+    `)
+}
 fullgregorYear = `${Day}-${month}-${year}`
 }, 1000);
 newBot.command("start",(ctx)=>{
