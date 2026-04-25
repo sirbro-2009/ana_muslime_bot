@@ -1,4 +1,3 @@
-
 const {Telegraf,Input} = require("telegraf")
 const express = require('express')
 const app = express()
@@ -8,7 +7,6 @@ app.listen(process.env.PORT || 3000)
 const quranFile = require("./assets/quran.json") 
 const links = require("./assets/imgLinks.json")
 const audios = require("./assets/audios.json")
-const chat_id = require("./assets/chat_id.json")
 require('dotenv').config()
 const path = require("path")
 const fs = require("fs")
@@ -110,7 +108,6 @@ else if(e.results[0]){
 let resalut = e.results[0]
 let lat = resalut.latitude
 let log = resalut.longitude
-console.log(lat,log)
 let nameCity = resalut.name
 let country = resalut.country_code === "IL"?"PS":resalut.country_code
 let countryName = resalut.country === "Israel"?"Palestine ❤️☝️":(resalut.country||(resalut.country_code ==="PS"?"Palestine  ❤️☝️":" "))
