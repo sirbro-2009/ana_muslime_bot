@@ -330,7 +330,7 @@ newBot.command("souraList",ctx=>{
     ctx.reply(quranSurahs.join("\n"))
 })
 newBot.launch()
-const {Telegraf,Input} = require("telegraf")
+const {Input} = require("telegraf")
 const { message } = require('telegraf/filters')
 const quranFile = require("./assets/quran.json") 
 const links = require("./assets/imgLinks.json")
