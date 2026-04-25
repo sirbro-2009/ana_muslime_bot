@@ -38,15 +38,6 @@ newBot.telegram.sendMessage()
 }
 fullgregorYear = `${Day}-${month}-${year}`
 }, 1000);
-newBot.on('message', (ctx) => {
-  const id = ctx.chat.id
-  const ids = JSON.parse(fs.readFileSync('./assets/chat_id.json', 'utf8'))
-  
-  if(!ids.includes(id)){
-    ids.push(id)
-    fs.writeFileSync('./assets/chat_id.json', JSON.stringify(ids))
-  }
-})
 newBot.command("start",(ctx)=>{
 ctx.reply(`
 السلام عليكم و رحمة الله و بركاته
@@ -79,6 +70,13 @@ ctx.reply(`
 الشرح الدائم ان شاء الله
 <i>/help</i>
 `,{ parse_mode: 'HTML' })
+  const id = ctx.chat.id
+  const ids = JSON.parse(fs.readFileSync('./assets/chat_id.json', 'utf8'))
+  
+  if(!ids.includes(id)){
+    ids.push(id)
+    fs.writeFileSync('./assets/chat_id.json', JSON.stringify(ids))
+  }
 })
 newBot.command("help",(ctx)=>{
 ctx.reply(`
