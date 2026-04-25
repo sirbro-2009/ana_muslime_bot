@@ -4,9 +4,7 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => res.send('البوت يعمل ✅'))
-
 app.listen(process.env.PORT || 3000)
-const { message } = require('telegraf/filters')
 const quranFile = require("./assets/quran.json") 
 const links = require("./assets/imgLinks.json")
 const audios = require("./assets/audios.json")
