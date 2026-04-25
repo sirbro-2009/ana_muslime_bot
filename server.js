@@ -1,7 +1,6 @@
 const {Telegraf,Input} = require("telegraf")
 const express = require('express')
 const app = express()
-
 app.get('/', (req, res) => res.send('البوت يعمل ✅'))
 app.listen(process.env.PORT || 3000)
 const quranFile = require("./assets/quran.json") 
@@ -24,17 +23,30 @@ month= date.getMonth()+1<10?`0${date.getMonth()+1}`:date.getMonth()+1
 year= date.getFullYear()
 let mins = date.getMinutes()
 let second = date.getSeconds()
-if(mins === 0&second === 0){
-newBot.telegram.sendMessage(`
+const ids = JSON.parse(fs.readFileSync('./assets/chat_id.json', 'utf8'))
+if(mins === 0&&second === 0){
+ids.forEach(id => {
+  newBot.telegram.sendMessage(id, `
 ﴿إِنَّ ٱللَّهَ وَمَلَـٰٓئِكَتَهُۥ يُصَلُّونَ عَلَى ٱلنَّبِيِّۚ يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ صَلُّواْ عَلَيۡهِ وَسَلِّمُواْ تَسۡلِيمًا﴾
 \n
 صلوا على محمد ❤️
 \n
 ﷺ
     `)
+})
+newBot.telegram.sendMessage()
 }
 fullgregorYear = `${Day}-${month}-${year}`
 }, 1000);
+newBot.on('message', (ctx) => {
+  const id = ctx.chat.id
+  const ids = JSON.parse(fs.readFileSync('./assets/chat_id.json', 'utf8'))
+  
+  if(!ids.includes(id)){
+    ids.push(id)
+    fs.writeFileSync('./assets/chat_id.json', JSON.stringify(ids))
+  }
+})
 newBot.command("start",(ctx)=>{
 ctx.reply(`
 السلام عليكم و رحمة الله و بركاته
