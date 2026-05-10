@@ -170,10 +170,10 @@ fetch(`https://api.aladhan.com/v1/timings/${fullgregorYear}?latitude=${lat}&long
         //
         let hedjriDate 
         if(country === "DZ"){
-                        const link = "https://marw.gov.dz/";
-                        fetch(link).then(data => data.text()).then(page => {
-                        let date = page.match(/<[^>]*id=["']ubiko-date-hijri["'][^>]*>(.*?)<\/[^>]+>/s);
-                        sendMessage(date[1],``)
+                        const link = `https://marw.gov.dz/rest/ubiko_rest/get_hijri_date?_format=json&time=${Date.now()}`;
+                        fetch(link).then(data => data.json()).then(respond => {
+                        
+                        sendMessage(respond.result.formatted)
                         })
         }
         else if(country !== "DZ"){
