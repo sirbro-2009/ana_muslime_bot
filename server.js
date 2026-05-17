@@ -185,7 +185,7 @@ function sendMessage(date,gregoreText){
             \n
             🕌 مواقيت الصلاة ل ${nameCity} - ${countryName} - ${flag}
             \n
-            ليوم ${date} ${gregoreText}
+            ليوم ${date} ${gregoreText||``}
             \n
             الفجر : ${fadjTime}
             \n
